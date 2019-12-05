@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .power0{
+            width:180px;height: 15px;border: 1px solid #bbb;
+        }
+        .power1{
+            width:60px;height: 15px;border: 1px solid #bbb;background: red;
+        }
+        .power2{
+            width:120px;height: 15px;border: 1px solid #bbb;background: orange;
+        }
+        .power3{
+            width:180px;height: 15px;border: 1px solid #bbb;background: green;
+        }
+
+
+    </style>
+</head>
+<body>
+<label>请输入密码：</label>
+<input type="text" maxlength="16" id="pwd"><br/>
+
+<div style="">
+    <label>密码强度：</label>
+    <div id="mmqd" class="power0"></div>
+</div>
+</body>
+<script>
+    function $my(id){
+        return document.getElementById(id)
+    }
+
+</script>
+<script>
+//    键盘抬起事件
+    $my("pwd").onkeyup = function () {
+//        if(this.value.length>=6){
+//            var lvl = getLvl(this.value);
+//            if(lvl==1){
+//                $my("mmqd").className = "power1"
+//            }else if(lvl==2){
+//                $my("mmqd").className = "power2"
+//            }else if(lvl==3) {
+//                $my("mmqd").className = "power3"
+//            }else{
+//                $my("mmqd").className = "power0"
+//            }
+//        }else{
+//            $my("mmqd").className = "power0"
+//        }
+        $my("mmqd").className = "power"+ (this.value.length>=6?getLvl(this.value):0)
+    };
+
+    //得到级别\
+
+    function getLvl(pwd){
+        var lvl = 0 ;
+        if(/[0-9]/.test(pwd)){
+            lvl++;
+        }
+        if(/[a-zA-Z]/.test(pwd)){
+            lvl++;
+        }
+        if(/[^0-9a-zA-Z_]/.test(pwd)){
+            lvl++;
+        }
+        return lvl;
+    }
+</script>
+</html>

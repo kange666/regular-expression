@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div>
+        <label>QQ:</label><input type="text" id="qq"><span></span><br/>
+        <label>手机:</label><input type="text" id="phone"><span></span><br/>
+        <label>座机:</label><input type="text" id="tel"><span></span><br/>
+        <label>姓名:</label><input type="text" id="name"><span></span><br/>
+        <label>邮箱:</label><input type="text" id="email"><span></span><br/>
+    </div>
+<script>
+    function checkInput(input,reg){
+        input.onblur = function () {
+            if(reg.test(this.value)){
+                this.nextElementSibling.innerText = "正确";
+                this.nextElementSibling.style.color = "green"
+            }else{
+                this.nextElementSibling.innerText = "错误";
+                this.nextElementSibling.style.color = "red"
+            }
+        }
+    }
+    function my$(id){
+        return document.getElementById(id);
+    }
+</script>
+<script>
+    checkInput(my$("qq"),/^\d{5,11}$/);
+    checkInput(my$("phone"),/^\d{11}$/);
+    checkInput(my$("tel"),/^\d{3,4}[-]\d{8}$/);
+    checkInput(my$("name"),/^[\u4e00-\u9fa5]{2,6}$/);
+    checkInput(my$("email"),/^\d{5,11}$/);
+</script>
+</body>
+</html>

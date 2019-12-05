@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    //正则表达式：g 表示全局模式匹配
+//                i 忽略大小写
+
+    var str = "中国移动：10086；中国联通：10010；中国电信：10000";
+    //把里面的数字全部显示
+    //1.用字符串调march方法
+//    var array = str.match(/\d{5}/g);
+//    2.用正则表达式对象.exec方法传入字符串
+    var reg = /\d{5}/g;
+    var array = reg.exec(str);
+    while(array!=null){
+        console.log(array);
+        array = reg.exec(str);
+    }
+
+//    提取这里的日
+    var str2 = "2019-11-12";
+//    正则表达式对象.$3:表示拿到第三组
+    var array2 = str2.match(/(\d{4})[-](\d{1,2})[-](\d{1,2})/);
+    console.log(array2)
+    console.log(RegExp.$3)
+
+    //替换
+    var str3= "砍哥真的帅，好帅啊，帅";
+    var array3 = str3.replace(/帅/g,"cool")
+    console.log(array3)
+    //去空格
+    var str4 = "     我的天呀   呀呀呀    ";
+//    var array4 = str4.trim();
+//    console.log("===="+array4+"====")
+    var array4 = str4.replace(/\s+/g,"")
+    console.log("===="+array4+"====")
+
+</script>
+</body>
+</html>

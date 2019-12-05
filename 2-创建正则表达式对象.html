@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+//    通过构造函数创建对象
+//    var reg = new RegExp(/\d{5}/);
+//    var str = "我的电话号码是10086";
+//    var flag = reg.test(str);
+//    console.log(flag)
+
+//    字面量的方式创建
+    var reg =  /\d{1,5}/;
+    var flag = reg.test("我的幸运数组是1")
+    console.log(flag)
+
+    console.log(/\d{1,3}$/.test("123214"))
+</script>
+
+</html>
